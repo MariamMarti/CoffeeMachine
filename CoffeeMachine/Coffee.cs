@@ -17,10 +17,9 @@ namespace CoffeeMachine
 
         public static Coffees GetCoffeeByNumber(int coffeeNumber)
         {
-            string connectionString = @"Data Source=MARIAM-PC\SQLEXPRESS;Initial Catalog=CoffeeMachine;Integrated Security=True;";
             Coffees coffee = new Coffees();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Program.ConnectionString))
             {
                 string sqlCommand = "Select * From Coffees Where CoffeeNumber=@CoffeeNumber";
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);
@@ -48,10 +47,9 @@ namespace CoffeeMachine
 
         public static List<Coffees> GetAllCoffees()
         {
-            string connectionString = @"Data Source=MARIAM-PC\SQLEXPRESS;Initial Catalog=CoffeeMachine;Integrated Security=True;";
             List<Coffees> coffees = new List<Coffees>();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Program.ConnectionString))
             {
                 string sqlCommand = "Select * From Coffees";
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);

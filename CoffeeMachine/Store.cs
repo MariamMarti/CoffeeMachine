@@ -11,10 +11,9 @@ namespace CoffeeMachine
 
         public static Store LoadStoreData()
         {
-            string connectionString = @"Data Source=MARIAM-PC\SQLEXPRESS;Initial Catalog=CoffeeMachine;Integrated Security=True;";
             Store store = new Store();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Program.ConnectionString))
             {
                 string sqlCommand = "Select * From Store";
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);
@@ -38,9 +37,7 @@ namespace CoffeeMachine
 
         public bool UpdateStoreData(Coffees coffee)
         {
-            string connectionString = @"Data Source=MARIAM-PC\SQLEXPRESS;Initial Catalog=CoffeeMachine;Integrated Security=True;";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Program.ConnectionString))
             {
                 string sqlCommand = "Update Store SET Water=@Water, Coffee=@Coffee, Sugar=@Sugar";
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);

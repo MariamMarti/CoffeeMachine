@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -161,6 +162,13 @@ namespace CoffeeMachine
 
     class Program
     {
+        public static readonly string ConnectionString;
+
+        static Program ()
+        {
+            ConnectionString = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
+        }
+
         static void Main(string[] args)
         {
             CoffeeMachine coffeeMachine = new CoffeeMachine();
