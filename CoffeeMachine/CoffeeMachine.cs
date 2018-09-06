@@ -37,9 +37,9 @@ namespace CoffeeMachine
         #region Methods
         public void Start()
         {
-            List<Coffees> coffess = Coffees.GetAllCoffees();
+            List<Coffees> coffees = Coffees.GetAllCoffees();
             string text = "Menu:";
-            coffess.ForEach(item => text += string.Format("\n\r {0} - {1} - {2}", item.CoffeeNumber, item.CoffeeName, item.Price));
+            coffees.ForEach(item => text += string.Format("\n\r {0} - {1} - {2}", item.CoffeeNumber, item.CoffeeName, item.Price));
             Console.WriteLine(text);
             Console.WriteLine();
 
